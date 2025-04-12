@@ -9,12 +9,17 @@ import Home from "@/pages/home";
 import Register from "@/pages/register";
 import Verify from "@/pages/verify";
 import { Web3Provider } from "./contexts/web3-context";
+import Background3D from "@/components/3d-background";
 
 function Router() {
   return (
-    <div className="min-h-screen flex flex-col bg-surface-900 text-surface-50">
+    <div className="min-h-screen flex flex-col bg-surface-900 text-surface-50 relative overflow-hidden">
+      {/* 3D Background */}
+      <Background3D />
+      
+      {/* Content */}
       <Navbar />
-      <main className="flex-grow py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+      <main className="flex-grow py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full relative z-10">
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/register" component={Register} />
