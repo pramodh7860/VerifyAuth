@@ -96,7 +96,7 @@ export default function HeroSection() {
             <i className="fas fa-user-plus mr-2"></i>
             Register Your Identity
           </Link>
-          <Link href="/verify" className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md shadow-lg text-surface-800 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+          <Link href="/verify" className="inline-flex items-center px-8 py-4 border border-cyan-500/30 text-lg font-medium rounded-md shadow-lg text-white bg-cyan-700 hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition-colors">
             <i className="fas fa-search mr-2"></i>
             Verify an Identity
           </Link>

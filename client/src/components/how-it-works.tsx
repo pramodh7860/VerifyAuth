@@ -2,6 +2,18 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import ScrollAnimation from "./scroll-animation";
 import FloatingIcon from "./floating-icon";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faWallet, 
+  faIdCard, 
+  faDatabase, 
+  faLink, 
+  faSearch, 
+  faShieldAlt,
+  faFingerprint,
+  faLock,
+  faExchangeAlt
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function HowItWorks() {
   const containerRef = useRef(null);
@@ -94,7 +106,7 @@ export default function HowItWorks() {
               <div className="md:w-1/2 flex justify-start">
                 <div className="bg-gray-900/90 backdrop-blur-sm rounded-full p-6 flex items-center justify-center w-24 h-24 border-2 border-blue-500/30 shadow-lg shadow-blue-500/20">
                   <FloatingIcon 
-                    icon={<i className="fas fa-wallet"></i>} 
+                    icon={<FontAwesomeIcon icon={faWallet} size="2x" />} 
                     size="lg" 
                     color="text-blue-300" 
                   />
@@ -111,7 +123,7 @@ export default function HowItWorks() {
               <div className="md:w-1/2 flex md:justify-end md:order-1">
                 <div className="bg-gray-900/90 backdrop-blur-sm rounded-full p-6 flex items-center justify-center w-24 h-24 border-2 border-indigo-500/30 shadow-lg shadow-indigo-500/20">
                   <FloatingIcon 
-                    icon={<i className="fas fa-id-card"></i>} 
+                    icon={<FontAwesomeIcon icon={faIdCard} size="2x" />} 
                     size="lg" 
                     color="text-indigo-300" 
                   />
@@ -128,7 +140,7 @@ export default function HowItWorks() {
               <div className="md:w-1/2 flex justify-start">
                 <div className="bg-gray-900/90 backdrop-blur-sm rounded-full p-6 flex items-center justify-center w-24 h-24 border-2 border-cyan-500/30 shadow-lg shadow-cyan-500/20">
                   <FloatingIcon 
-                    icon={<i className="fas fa-database"></i>} 
+                    icon={<FontAwesomeIcon icon={faDatabase} size="2x" />} 
                     size="lg" 
                     color="text-cyan-300" 
                   />
