@@ -1,16 +1,45 @@
 import { useWeb3 } from "@/contexts/web3-context";
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 
 export default function WalletConnect() {
-  const { isConnected, address, connectWallet, disconnectWallet } = useWeb3();
+  // Use try-catch to safely access the Web3Context
+  const [isMetaMaskAvailable, setIsMetaMaskAvailable] = useState<boolean>(false);
+
+  useEffect(() => {
+    // Check if MetaMask is available
+    setIsMetaMaskAvailable(typeof window !== "undefined" && !!window.ethereum);
+  }, []);
+
+  // Only use the Web3 context if it's available
+  const web3Context = useWeb3();
+  const { isConnected, address, connectWallet, disconnectWallet } = web3Context;
 
   const handleConnect = async () => {
-    await connectWallet();
+    if (connectWallet) {
+      await connectWallet();
+    }
   };
 
   const handleDisconnect = () => {
-    disconnectWallet();
+    if (disconnectWallet) {
+      disconnectWallet();
+    }
   };
+
+  if (!isMetaMaskAvailable) {
+    return (
+      <div id="wallet-status" className="flex items-center">
+        <Button 
+          disabled
+          className="inline-flex items-center bg-surface-700 text-surface-300"
+        >
+          <i className="fa-solid fa-wallet mr-2"></i>
+          MetaMask Not Found
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <div id="wallet-status" className="flex items-center">

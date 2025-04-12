@@ -8,16 +8,28 @@ interface Web3ContextType {
   address: string | null;
   chainId: number | null;
   isConnected: boolean;
-  connectWallet: () => Promise<void>;
+  connectWallet: () => Promise<boolean>;
   disconnectWallet: () => void;
   getBalance: () => Promise<string>;
 }
 
-const Web3Context = createContext<Web3ContextType | undefined>(undefined);
+// Create context with a default value
+const defaultContextValue: Web3ContextType = {
+  provider: null,
+  signer: null,
+  address: null,
+  chainId: null,
+  isConnected: false,
+  connectWallet: async () => false,
+  disconnectWallet: () => {},
+  getBalance: async () => "0",
+};
+
+const Web3Context = createContext<Web3ContextType>(defaultContextValue);
 
 export function useWeb3() {
   const context = useContext(Web3Context);
-  if (context === undefined) {
+  if (!context) {
     throw new Error("useWeb3 must be used within a Web3Provider");
   }
   return context;
@@ -34,7 +46,7 @@ export function Web3Provider({ children }: { children: ReactNode }) {
   // Initialize from local storage
   useEffect(() => {
     const checkConnection = async () => {
-      if (typeof window.ethereum !== "undefined") {
+      if (typeof window !== "undefined" && window.ethereum) {
         try {
           const provider = new ethers.BrowserProvider(window.ethereum);
           const accounts = await provider.listAccounts();
@@ -60,7 +72,7 @@ export function Web3Provider({ children }: { children: ReactNode }) {
 
   // Wallet event listeners
   useEffect(() => {
-    if (typeof window.ethereum !== "undefined") {
+    if (typeof window !== "undefined" && window.ethereum) {
       const handleAccountsChanged = (accounts: string[]) => {
         if (accounts.length === 0) {
           disconnectWallet();
@@ -84,7 +96,7 @@ export function Web3Provider({ children }: { children: ReactNode }) {
   }, [address]);
 
   const connectWallet = async () => {
-    if (typeof window.ethereum !== "undefined") {
+    if (typeof window !== "undefined" && window.ethereum) {
       try {
         const provider = new ethers.BrowserProvider(window.ethereum);
         await window.ethereum.request({ method: "eth_requestAccounts" });
@@ -149,19 +161,19 @@ export function Web3Provider({ children }: { children: ReactNode }) {
     }
   };
 
+  const value: Web3ContextType = {
+    provider,
+    signer,
+    address,
+    chainId,
+    isConnected,
+    connectWallet,
+    disconnectWallet,
+    getBalance,
+  };
+
   return (
-    <Web3Context.Provider
-      value={{
-        provider,
-        signer,
-        address,
-        chainId,
-        isConnected,
-        connectWallet,
-        disconnectWallet,
-        getBalance,
-      }}
-    >
+    <Web3Context.Provider value={value}>
       {children}
     </Web3Context.Provider>
   );
