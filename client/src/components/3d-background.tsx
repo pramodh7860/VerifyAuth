@@ -142,7 +142,7 @@ export default function Background3D() {
   }, []); // Empty deps array to run only once on mount
 
   return (
-    <div ref={containerRef} className="fixed top-0 left-0 w-full h-full -z-10">
+    <div ref={containerRef} className="relative w-full h-screen">
       <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />
     </div>
   );

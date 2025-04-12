@@ -157,7 +157,7 @@ export default function HowItWorks() {
               <div className="md:w-1/2 flex md:justify-end md:order-1">
                 <div className="bg-gray-900/90 backdrop-blur-sm rounded-full p-6 flex items-center justify-center w-24 h-24 border-2 border-blue-500/30 shadow-lg shadow-blue-500/20">
                   <FloatingIcon 
-                    icon={<i className="fas fa-link"></i>} 
+                    icon={<FontAwesomeIcon icon={faLink} size="2x" />} 
                     size="lg" 
                     color="text-blue-300" 
                   />
@@ -174,7 +174,7 @@ export default function HowItWorks() {
               <div className="md:w-1/2 flex justify-start">
                 <div className="bg-gray-900/90 backdrop-blur-sm rounded-full p-6 flex items-center justify-center w-24 h-24 border-2 border-indigo-500/30 shadow-lg shadow-indigo-500/20">
                   <FloatingIcon 
-                    icon={<i className="fas fa-search"></i>} 
+                    icon={<FontAwesomeIcon icon={faSearch} size="2x" />} 
                     size="lg" 
                     color="text-indigo-300" 
                   />
