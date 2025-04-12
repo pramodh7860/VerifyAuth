@@ -69,7 +69,7 @@ export default function HeroSection() {
           animate="visible"
           variants={titleVariants}
         >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary-400 via-blue-400 to-purple-500 text-transparent bg-clip-text drop-shadow-lg">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-300 text-transparent bg-clip-text drop-shadow-lg">
             Decentralized Identity Management
           </h1>
         </motion.div>
@@ -80,7 +80,7 @@ export default function HeroSection() {
           animate="visible"
           variants={subtitleVariants}
         >
-          <p className="text-xl sm:text-2xl text-surface-300 max-w-3xl mx-auto mb-10">
+          <p className="text-xl sm:text-2xl text-gray-200 max-w-3xl mx-auto mb-10">
             A blockchain-based solution for secure, private, and user-controlled digital identity verification
           </p>
         </motion.div>
@@ -105,44 +105,44 @@ export default function HeroSection() {
         {/* Feature cards with scroll animations */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <ScrollAnimation direction="up" delay={0.1} className="h-full">
-            <div className="bg-surface-800/80 backdrop-blur-sm p-8 rounded-2xl border border-surface-700 hover:border-primary-500 transition-all hover:shadow-lg hover:shadow-primary-500/10 h-full transform hover:-translate-y-1">
+            <div className="bg-gray-900/90 backdrop-blur-sm p-8 rounded-2xl border border-blue-500/30 hover:border-blue-400 transition-all hover:shadow-lg hover:shadow-blue-500/20 h-full transform hover:-translate-y-1">
               <div className="mb-6">
                 <FloatingIcon 
                   icon={<i className="fas fa-lock"></i>} 
                   size="lg" 
-                  color="text-primary-500" 
+                  color="text-blue-300" 
                 />
               </div>
-              <h3 className="text-xl font-medium mb-3">Secure Authentication</h3>
-              <p className="text-surface-300">Connect with MetaMask for passwordless authentication using blockchain technology</p>
+              <h3 className="text-xl font-medium mb-3 text-white">Secure Authentication</h3>
+              <p className="text-gray-200">Connect with MetaMask for passwordless authentication using blockchain technology</p>
             </div>
           </ScrollAnimation>
           
           <ScrollAnimation direction="up" delay={0.2} className="h-full">
-            <div className="bg-surface-800/80 backdrop-blur-sm p-8 rounded-2xl border border-surface-700 hover:border-primary-500 transition-all hover:shadow-lg hover:shadow-primary-500/10 h-full transform hover:-translate-y-1">
+            <div className="bg-gray-900/90 backdrop-blur-sm p-8 rounded-2xl border border-indigo-500/30 hover:border-indigo-400 transition-all hover:shadow-lg hover:shadow-indigo-500/20 h-full transform hover:-translate-y-1">
               <div className="mb-6">
                 <FloatingIcon 
                   icon={<i className="fas fa-database"></i>} 
                   size="lg" 
-                  color="text-primary-500" 
+                  color="text-indigo-300" 
                 />
               </div>
-              <h3 className="text-xl font-medium mb-3">Decentralized Storage</h3>
-              <p className="text-surface-300">Your identity data is securely stored on IPFS, not controlled by any central authority</p>
+              <h3 className="text-xl font-medium mb-3 text-white">Decentralized Storage</h3>
+              <p className="text-gray-200">Your identity data is securely stored on IPFS, not controlled by any central authority</p>
             </div>
           </ScrollAnimation>
           
           <ScrollAnimation direction="up" delay={0.3} className="h-full">
-            <div className="bg-surface-800/80 backdrop-blur-sm p-8 rounded-2xl border border-surface-700 hover:border-primary-500 transition-all hover:shadow-lg hover:shadow-primary-500/10 h-full transform hover:-translate-y-1">
+            <div className="bg-gray-900/90 backdrop-blur-sm p-8 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all hover:shadow-lg hover:shadow-cyan-500/20 h-full transform hover:-translate-y-1">
               <div className="mb-6">
                 <FloatingIcon 
                   icon={<i className="fas fa-user-shield"></i>} 
                   size="lg" 
-                  color="text-primary-500" 
+                  color="text-cyan-300" 
                 />
               </div>
-              <h3 className="text-xl font-medium mb-3">Self-Sovereign Identity</h3>
-              <p className="text-surface-300">You own and control your data, choosing what information to share and with whom</p>
+              <h3 className="text-xl font-medium mb-3 text-white">Self-Sovereign Identity</h3>
+              <p className="text-gray-200">You own and control your data, choosing what information to share and with whom</p>
             </div>
           </ScrollAnimation>
         </div>

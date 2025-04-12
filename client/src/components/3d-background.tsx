@@ -40,13 +40,19 @@ export default function Background3D() {
 
     // Create particles
     const particlesGeometry = new THREE.BufferGeometry();
-    const particleCount = 1000;
+    const particleCount = 1500;
     
     const posArray = new Float32Array(particleCount * 3);
     const colorArray = new Float32Array(particleCount * 3);
     
-    // Primary particle color - primary theme color blueish
-    const color = new THREE.Color('#3B82F6');
+    // Create an array of colors for particles
+    const colors = [
+      new THREE.Color('#60A5FA'), // blue-400
+      new THREE.Color('#93C5FD'), // blue-300
+      new THREE.Color('#A5B4FC'), // indigo-300
+      new THREE.Color('#67E8F9'), // cyan-300
+      new THREE.Color('#22D3EE')  // cyan-400
+    ];
     
     for (let i = 0; i < particleCount * 3; i += 3) {
       // Position particles in a cube
@@ -54,20 +60,21 @@ export default function Background3D() {
       posArray[i + 1] = (Math.random() - 0.5) * 60;
       posArray[i + 2] = (Math.random() - 0.5) * 60;
       
-      // Add color variations
-      const intensity = 0.5 + Math.random() * 0.5;
-      colorArray[i] = color.r * intensity;
-      colorArray[i + 1] = color.g * intensity;
-      colorArray[i + 2] = color.b * intensity;
+      // Add color variations by randomly selecting from colors array
+      const selectedColor = colors[Math.floor(Math.random() * colors.length)];
+      const intensity = 0.7 + Math.random() * 0.3; // Brighter intensity
+      colorArray[i] = selectedColor.r * intensity;
+      colorArray[i + 1] = selectedColor.g * intensity;
+      colorArray[i + 2] = selectedColor.b * intensity;
     }
     
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
     particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
     
     const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.15,
+      size: 0.2,
       transparent: true,
-      opacity: 0.8,
+      opacity: 0.9,
       vertexColors: true,
       blending: THREE.AdditiveBlending,
       sizeAttenuation: true,
